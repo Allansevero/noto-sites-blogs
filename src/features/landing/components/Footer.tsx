@@ -1,6 +1,6 @@
 import logoNoto from '@/assets/logo-noto.svg';
 import whatsappQr from '@/assets/whatsapp-qr.svg';
-import { Instagram, Linkedin, MessageCircle, Apple, Play } from 'lucide-react';
+import { MessageCircle, Apple, Play } from 'lucide-react';
 
 const whatsappUrl = 'https://wa.me/5551993527271';
 
@@ -19,10 +19,18 @@ export function Footer() {
             <div className="mb-8 mt-10 flex items-center gap-7 sm:mt-12" aria-label="Redes sociais e contato do Noto">
               {/* Endereços fictícios para revisão do layout. */}
               <a href="https://example.com/noto/instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram do Noto" className="rounded-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-white">
-                <Instagram className="h-7 w-7" strokeWidth={1.6} />
+                <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none" />
+                </svg>
               </a>
               <a href="https://example.com/noto/linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn do Noto" className="rounded-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-white">
-                <Linkedin className="h-7 w-7" strokeWidth={1.6} />
+                <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="2" y="9" width="4" height="13" />
+                  <circle cx="4" cy="4" r="2" />
+                  <path d="M10 22V9h4v2a4 4 0 0 1 8 2v9h-4v-9a2 2 0 0 0-4 0v9z" />
+                </svg>
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Conversar com o Noto pelo WhatsApp" className="rounded-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-white">
                 <MessageCircle className="h-8 w-8" strokeWidth={1.6} />
