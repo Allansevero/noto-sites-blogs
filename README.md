@@ -1,32 +1,25 @@
-# React + TypeScript + Vite
+# Noto
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Landing page em React + Vite, com os assets locais e a fonte Schibsted Grotesk.
 
-Currently, two official plugins are available:
+## Desenvolvimento
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Execute `npm install` e `npm run dev`. Para gerar a versão de produção, execute `npm run build`.
 
-## React Compiler
+## EasyPanel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Crie um serviço do tipo App, configure este projeto como fonte e selecione a compilação por Dockerfile. Use a porta interna **80**. Na aba de domínios, adicione seu domínio e ative HTTPS. O Dockerfile compila o React e serve os arquivos com Nginx.
 
-## Expanding the Oxlint configuration
+## Layout e carregamento
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Layout fluido com ajustes para celulares pequenos, tablets, computadores e orientação horizontal. Menu adaptado até 820 px, alvos de toque de no mínimo 44 px e modal com rolagem interna, bloqueio da página ao fundo e navegação por teclado.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+O mascote usa WebP com versões de 320 e 640 px, selecionadas pelo navegador conforme o tamanho e a densidade da tela. A fonte variável foi convertida em WOFF2 com caracteres latinos, incluindo português, e carregada antecipadamente. Os originais permanecem nas pastas assets e fonts.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+No EasyPanel, Nginx comprime HTML/CSS/JavaScript e mantém os assets versionados em cache por um ano. O HTML exige revalidação para receber atualizações. Essas configurações entram em vigor ao publicar uma nova imagem Docker.
+
+Validação local: compilação de produção e verificações em navegador nos tamanhos 320×568, 360×800, 390×844, 600×960, 768×1024, 820×1180, 1024×768, 1440×900, 2560×1440 e 844×390. As verificações cobrem largura da página, sobreposição dos cartões, carregamento da fonte, abertura/fechamento do menu e limites do modal. O desempenho real da VPS deve ser medido após a publicação.
+
+## Comportamento do botão
+
+O botão “Conhecer o Noto” abre uma explicação local. Substitua esse comportamento pelo destino comercial quando ele estiver definido. Não há backend, login, formulário ou integração com emissão de notas nesta landing page.
